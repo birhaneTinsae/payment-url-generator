@@ -1,0 +1,23 @@
+server:
+  port: 8080
+#  servlet:
+#    context-path: /openupdemo
+spring:
+  application:
+    name: rsa-encryption
+
+openup:
+  appid: ce83aaa3dedd42ab88bd017ce1ca2dd8
+  appkey: a8955b02b5df475882038616d5448d43
+  publickey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgIwN9mVEWG9kagbxt2ippr8RNzK/fhBXcZa1ViQRnClz3VTjk9cnomIds3AFhsiNihNTPVSirbeCOKxr99mvJuuGdarzfkNEIbOkSLFfO7P6HdQHQjaTg9LueWUy1tz1gh0dsNpg4zPVr+T9lTCTWOnDgU2hNixo0r9wo72dxwXTc55vX4X7sWSz29WzrlKyyBQ2+CcA55EYp6cWwpkaTSfV+Boymr/ZnLI7qlp/7FGZk2574fvE/9uCZdnAHYCTzKOFUjEwZ9o8sw/f+TVglbKvRDSMpqsZXN6DY7FvXMp52ACM7OAp63y8Hir2YKAWj6OJ8KVoS8TAUeDmHyaWwwIDAQAB
+  notifyUrl: http://www.google.com/notifyUrl
+  returnUrl: http://www.google.com/returnUrl
+  timeoutExpress: 30
+  shortCode: 10011
+  receiveName: Org Name
+  toTradeWebPay: http://10.180.79.27:443/ammapi/payment/service-openup/toTradeWebPay
+logging:
+  level:
+    com.tydic: debug
+  file:
+    name: /home/amm/logs/amm-service/amm-openup-demo.log
