@@ -38,7 +38,7 @@ public class IndexController {
     private final RestTemplate restTemplate;
 
     @PostMapping("/encrypt")
-    public EncryptResponseDTO encrypt(@RequestBody @Valid EncryptRequestDTO encryptRequestDTO) {
+    public OpenAPIRequest encrypt(@RequestBody @Valid EncryptRequestDTO encryptRequestDTO) {
         var data = JSON.toJSONString(encryptRequestDTO);
         SortedMap<String, String> sortedMap = JSON.parseObject(data, new TypeReference<TreeMap<String, String>>() {
         });
@@ -56,15 +56,16 @@ public class IndexController {
         request.setAppid(config.getAppid());
         request.setUssd(ussd);
         request.setSign(sgin);
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(config.getToTradeWebPay(), request, String.class);
-        R<ToTradeWebPayResponse> r = JSON.parseObject(responseEntity.getBody(), new TypeReference<R<ToTradeWebPayResponse>>() {
-        });
-        if (r.getCode() == 200) {
-            return new EncryptResponseDTO(r.getData().getToPayUrl());
-        } else {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Cannot process your request to encrypt");
-        }
+        return  request;
+//        ResponseEntity<String> responseEntity = restTemplate.postForEntity(config.getToTradeWebPay(), request, String.class);
+//        R<ToTradeWebPayResponse> r = JSON.parseObject(responseEntity.getBody(), new TypeReference<R<ToTradeWebPayResponse>>() {
+//        });
+//        if (r.getCode() == 200) {
+//            return new EncryptResponseDTO(r.getData().getToPayUrl());
+//        } else {
+//            throw new ResponseStatusException(
+//                    HttpStatus.BAD_REQUEST, "Cannot process your request to encrypt");
+//        }
     }
 
 //    @PostMapping("/decrypt")
