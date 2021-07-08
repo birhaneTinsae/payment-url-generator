@@ -4,7 +4,15 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-@Data
+//@Data
 public class ToTradeWebPayResponse implements Serializable {
     private String toPayUrl;
+
+    public String getToPayUrl() {
+        return toPayUrl;
+    }
+
+    public void setToPayUrl(String toPayUrl) {
+        this.toPayUrl = toPayUrl;
+    }
 }
